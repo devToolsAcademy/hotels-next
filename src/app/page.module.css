@@ -1,4 +1,4 @@
-.cardsConteainer {
+.cardsContainer {
   width: 80%;
   display: grid;
   gap: 20px;
@@ -8,7 +8,7 @@
 }
 
 @media(min-width: 768px) {
-  .cardsConteainer {
+  .cardsContainer {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -17,7 +17,7 @@
 }
 
 @media(min-width: 1024px) {
-  .cardsConteainer {
+  .cardsContainer {
     width: 100%;
     height: 100%;
     margin-top: 10px;

@@ -7,7 +7,7 @@ export const CardsFilter = () => {
   return (
     <>
       <Header />
-      <div className={styles.cardsConteainer}>
+      <div className={styles.cardsContainer}>
         {hotelData.map((hotel, index) => (
           <CardHotel key={index} hotel={hotel} />
         ))}
