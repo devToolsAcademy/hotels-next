@@ -1,10 +1,13 @@
-import styles from'./page.module.css'
+import { CardsFilterTemplate } from "../../components/template/cardsFilter-template/CardsFilterTemplate";
+
 
 
 export default function Home() {
 
   return (
-    <h1 className={styles.titleContainer}>Hola front end</h1>
+    <>
+      <CardsFilterTemplate/>
+    </>
 
   )
 }
