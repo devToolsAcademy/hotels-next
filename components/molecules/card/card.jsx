@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import styles from "./card.module.css";
 
 export const CardHotel = ({ hotel }) => {
-  // console.log(hotel);
+  const handleClick=()=>{}
   return (
     <>
       <Card sx={{ maxWidth: 345 }}>
@@ -50,7 +50,7 @@ export const CardHotel = ({ hotel }) => {
           </Typography>
         </CardContent>
         <CardActions className={styles.containerButton}>
-          <Button size="large" className={styles.buttonCardHotel}>
+          <Button size="large" className={styles.buttonCardHotel} onClick={handleClick}>
             Share
           </Button>
           <Button size="large" className={styles.buttonCardHotel}>
