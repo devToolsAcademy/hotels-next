@@ -5,9 +5,10 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styles from "./card.module.css";
+import { MainButton } from "../../atoms/button/Button";
 
-export const CardHotel = ({ hotel }) => {
-  const handleClick=()=>{}
+export const CardHotel = ({ hotel, snackbar }) => {
+  // const handleClick = () => {};
   return (
     <>
       <Card sx={{ maxWidth: 345 }}>
@@ -50,12 +51,13 @@ export const CardHotel = ({ hotel }) => {
           </Typography>
         </CardContent>
         <CardActions className={styles.containerButton}>
-          <Button size="large" className={styles.buttonCardHotel} onClick={handleClick}>
-            Share
-          </Button>
-          <Button size="large" className={styles.buttonCardHotel}>
-            Learn More
-          </Button>
+          <MainButton className={styles.buttonCardHotel}>Detalles</MainButton>
+          <MainButton
+            className={styles.buttonCardHotel}
+            onClick={() => snackbar(true)}
+          >
+            Reservas
+          </MainButton>
         </CardActions>
       </Card>
     </>
