@@ -1,20 +1,26 @@
-"use client";
-import { Header } from "../../molecules/header/header";
-import { CardHotel } from "../../molecules/card/card";
-import styles from "./CardsFilter.module.css";
-import { useState, useEffect } from "react";
-import { hotelSize } from "../../../src/utils/helper";
-import { Alert, AlertTitle, Snackbar } from "@mui/material";
+'use client';
+import {Header} from '../../molecules/header/header';
+import {CardHotel} from '../../molecules/card/card';
+import styles from './CardsFilter.module.css';
+import {useState, useEffect, useContext} from 'react';
+import {hotelSize} from '../../../src/utils/helper';
+import {Alert, AlertTitle, Snackbar} from '@mui/material';
+import {AppContext} from '@/store/CurrentProvider';
 
-export const CardsFilter = ({ getDataHotels }) => {
-  const [selectedCountry, setSelectedCountry] = useState("all");
-  const [dateHotelFrom, setDateFrom] = useState("all");
-  const [dateHotelTo, setDateTo] = useState("all");
-  const [selectedPrice, setSelectedPrice] = useState("all");
-  const [selectedSize, setSelectedSize] = useState("all");
+export const CardsFilter = ({getDataHotels}) => {
+  const [selectedCountry, setSelectedCountry] = useState('all');
+  const [dateHotelFrom, setDateFrom] = useState('all');
+  const [dateHotelTo, setDateTo] = useState('all');
+  const [selectedPrice, setSelectedPrice] = useState('all');
+  const [selectedSize, setSelectedSize] = useState('all');
   const [filterHotels, setFilterHotels] = useState([]);
   const [setshowSnackbar, setShowSnackbar] = useState(false);
-  
+  const {setHomePage} = useContext(AppContext);
+
+  useEffect(() => {
+    setHomePage();
+  }, []);
+
   // const [hotelsData, setHotelsData] = useState([]);
 
   // const fetchHotels = async () => {
@@ -46,18 +52,18 @@ export const CardsFilter = ({ getDataHotels }) => {
       const availabilityDays = availabilityHotels + hotel.availabilityTo;
 
       const isCountryMatch =
-        selectedCountry === "all" ||
+        selectedCountry === 'all' ||
         hotel.country.toLowerCase() === selectedCountry.toLowerCase();
 
       const isPriceMatch =
-        selectedPrice === "all" || hotel.price.toString() === selectedPrice;
+        selectedPrice === 'all' || hotel.price.toString() === selectedPrice;
 
       const isSizeMatch =
-        selectedSize === "all" ||
+        selectedSize === 'all' ||
         hotelSize(hotel.rooms).toLowerCase() == selectedSize.toLowerCase();
 
       const availability =
-        (dateHotelFrom === "all" && dateHotelTo === "all") ||
+        (dateHotelFrom === 'all' && dateHotelTo === 'all') ||
         (dateCheckInLocal.getTime() >= availabilityHotels &&
           dateCheckOutLocal.getTime() <= availabilityDays);
 
@@ -69,7 +75,7 @@ export const CardsFilter = ({ getDataHotels }) => {
     dateHotelFrom,
     dateHotelTo,
     selectedPrice,
-    selectedSize,
+    selectedSize
   ]);
 
   // const filterHotels = () => {
@@ -136,7 +142,7 @@ export const CardsFilter = ({ getDataHotels }) => {
         autoHideDuration={2000}
         onClose={setShowSnackbar}
       >
-        <Alert severity="success" sx={{ width: "100%" }}>
+        <Alert severity="success" sx={{width: '100%'}}>
           Hotel agregado correctamente
         </Alert>
       </Snackbar>

@@ -2,6 +2,13 @@
   position: fixed;
   background-color: rgba(146, 142, 142, 0.692);
 }
+
+.menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .contentOptionMenu {
   display: flex;
   justify-content: flex-end;
