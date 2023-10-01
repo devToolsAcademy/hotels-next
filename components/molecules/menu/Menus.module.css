@@ -1,23 +1,31 @@
 .containerMenu {
+  width: 100%;
   position: fixed;
+  height: 50px;
+  top: 0px;
   background-color: rgba(146, 142, 142, 0.692);
+  margin-bottom: 100px;
 }
 
-.menu{
+.menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 
 .contentOptionMenu {
   display: flex;
   justify-content: flex-end;
-  gap: 0.5rem;
+  gap: 1.6rem;
+  text-decoration: none;
 }
 
 .labelMenu {
   color: rgb(32, 32, 32);
   font-weight: bold;
+  text-decoration: none;
+  font-size: 2rem;
 }
 .labelMenu:hover {
   color: #e26811;

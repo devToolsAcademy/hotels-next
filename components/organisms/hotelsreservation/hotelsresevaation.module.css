@@ -1,17 +1,27 @@
-.containerPageReservas {
-  margin-top: 50px;
+.containerHotelsResevados {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.cardsContainer {
+.titleReservas {
+  font-size: 3rem;
+  color: #e26811;
+  text-align: center;
+  margin-bottom: 2.6rem;
+}
+.cardsContainerReservas {
   width: 80%;
   display: grid;
   gap: 20px;
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 20px;
+  justify-items: start;
 }
 
 @media (min-width: 768px) {
-  .cardsContainer {
+  .cardsContainerReservas {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -20,7 +30,7 @@
 }
 
 @media (min-width: 1024px) {
-  .cardsContainer {
+  .cardsContainerReservas {
     width: 100%;
     height: 100%;
     margin-top: 10px;

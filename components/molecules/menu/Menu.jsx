@@ -26,25 +26,25 @@ export const Menu = () => {
         <Toolbar variant="dense" className={styles.menu}>
           <Typography variant="h3">{title(currentPage)}</Typography>
           <div className={styles.contentOptionMenu}>
-            <Link href={'/'}>
-              <Typography
-                variant="h6"
-                component="div"
-                className={styles.labelMenu}
-              >
+            <Typography
+              variant="h6"
+              component="div"
+              // className={styles.labelMenu}
+            >
+              <Link href={'/'} className={styles.labelMenu}>
                 Home
-              </Typography>
-            </Link>
+              </Link>
+            </Typography>
 
-            <Link href={'/reservas'}>
-              <Typography
-                variant="h6"
-                component="div"
-                className={styles.labelMenu}
-              >
+            <Typography
+              variant="h6"
+              component="div"
+              // className={styles.labelMenu}
+            >
+              <Link href={'/reservas'} className={styles.labelMenu}>
                 Reservas
-              </Typography>
-            </Link>
+              </Link>
+            </Typography>
           </div>
         </Toolbar>
       </AppBar>
