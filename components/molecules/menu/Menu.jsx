@@ -35,13 +35,16 @@ export const Menu = () => {
                 Home
               </Typography>
             </Link>
-            <Typography
-              variant="h6"
-              component="div"
-              className={styles.labelMenu}
-            >
-              Reservas
-            </Typography>
+
+            <Link href={'/reservas'}>
+              <Typography
+                variant="h6"
+                component="div"
+                className={styles.labelMenu}
+              >
+                Reservas
+              </Typography>
+            </Link>
           </div>
         </Toolbar>
       </AppBar>

@@ -1,24 +1,45 @@
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import styles from "./card.module.css";
-import { MainButton } from "../../atoms/button/Button";
-import Link from "next/link";
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import styles from './card.module.css';
+import {MainButton} from '../../atoms/button/Button';
+import Link from 'next/link';
+import {useDispatch, useSelector} from 'react-redux';
+import {addReservation} from '@/store/reservasSlice';
 
-export const CardHotel = ({ hotel, snackbar }) => {
+export const CardHotel = ({hotel, snackbar}) => {
+  const dispatch = useDispatch();
+
+  const listHotelsReservation = useSelector(
+    (state) => state.reservation.hotelsReservation
+  );
+
   const handleClick = () => {
-    localStorage.setItem("selectedHotel", JSON.stringify(hotel));
+    localStorage.setItem('selectedHotel', JSON.stringify(hotel));
+  };
+
+  const hadleReservation = () => {
+    const hotelExists = listHotelsReservation.some(
+      (hotels) => hotels.name === hotel.name
+    );
+    if (hotelExists) {
+      alert('El hoter ya esta resevado');
+    } else {
+      console.log('Hotel agregado');
+      dispatch(addReservation(hotel));
+      snackbar(true);
+    }
   };
 
   return (
     <>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{maxWidth: 345}}>
         <CardMedia
           className={styles.imageHotel}
-          sx={{ height: 140 }}
+          sx={{height: 140}}
           image={hotel.photo}
           title={hotel.name}
         />
@@ -65,7 +86,7 @@ export const CardHotel = ({ hotel, snackbar }) => {
           </Link>
           <MainButton
             className={styles.buttonCardHotel}
-            onClick={() => snackbar(true)}
+            onClick={hadleReservation}
           >
             Reservas
           </MainButton>
